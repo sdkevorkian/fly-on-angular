@@ -18,7 +18,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 templateUrl: 'app/404.html'
             });
 
-
         $locationProvider.html5Mode(true);
     }
 ]);
+
+app.controller('AirplanesCtrl', ['$scope', '$http', function($scope, $http) {
+
+    var req = {
+        url: '/api/airplanes',
+        method: 'GET'
+    };
+
+    $http(req).then(function(res) {
+        $scope.airplanes = res.data;
+        console.log($scope.airplanes);
+    });
+}]);

@@ -1,4 +1,4 @@
-<h1>airplanes</h1>
+<h1>let's add some airplanes</h1>
 <form method="POST" action="/api/airplanes">
     <label for="manufacturer">Manufacturer</label>
     <input type="text" name="manufacturer">
@@ -10,3 +10,13 @@
     <input type="text" name="imgSrc">
     <input type="submit">
 </form>
+<!-- stretch - turn into component... -->
+<div ng-repeat="airplane in airplanes">
+    <p>
+        <a href="/api/airplanes/{{airplane._id}}">
+            <!-- need to define route in angular and html page for show -->
+            {{airplane.manufacturer}}'s {{airplane.model}}</a>
+    </p>
+    <p>{{airplane.engines}} engines</p>
+    <img src="{{airplane.imgSrc}}" alt="plane">
+</div>
