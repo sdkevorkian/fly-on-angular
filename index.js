@@ -3,9 +3,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var mongoose = require('mongoose');
 var app = express();
 
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/airplanes');
 
 app.use(bodyParser.json());
