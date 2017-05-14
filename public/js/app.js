@@ -1,6 +1,6 @@
 console.log('angular here');
 
-var app = angular.module('AirplaneApp', ['ui.router']);
+var app = angular.module('AirplaneApp', ["AirplanesControllers", "ui.router"]);
 
 // location provide gets rid of the # in route
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
@@ -11,26 +11,20 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         $stateProvider
             .state('airplanes', {
                 url: '/',
-                templateUrl: 'app/airplanes.html'
+                templateUrl: 'app/airplanes.html',
+                controller: 'AirplanesCtrl'
+            })
+            .state('airplaneShow', {
+                url: '/airplanes/:id',
+                templateUrl: 'app/airplaneShow.html',
+                controller: 'AirplaneShowCtrl'
             })
             .state('404', {
                 url: '/404',
                 templateUrl: 'app/404.html'
             });
 
+        // this removes # in browser url
         $locationProvider.html5Mode(true);
     }
 ]);
-
-app.controller('AirplanesCtrl', ['$scope', '$http', function($scope, $http) {
-
-    var req = {
-        url: '/api/airplanes',
-        method: 'GET'
-    };
-
-    $http(req).then(function(res) {
-        $scope.airplanes = res.data;
-        console.log($scope.airplanes);
-    });
-}]);

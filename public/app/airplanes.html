@@ -13,10 +13,8 @@
 <!-- stretch - turn into component... -->
 <div ng-repeat="airplane in airplanes">
     <p>
-        <a href="/api/airplanes/{{airplane._id}}">
+        <a href="/airplanes/{{airplane._id}}">
             <!-- need to define route in angular and html page for show -->
-            {{airplane.manufacturer}}'s {{airplane.model}}</a>
+            {{airplane.model}}</a>
     </p>
-    <p>{{airplane.engines}} engines</p>
-    <img src="{{airplane.imgSrc}}" alt="plane">
 </div>
