@@ -17,6 +17,9 @@ services.factory('Airplane', ['$http', function($http) {
             // plane is undefined
             console.log('this is my' + airplane);
             return $http.put('/api/airplanes/' + id, airplane);
+        },
+        deletePlane: function(id) {
+            return $http.delete('/api/airplanes/' + id);
         }
 
     };

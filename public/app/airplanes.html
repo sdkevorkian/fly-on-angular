@@ -10,11 +10,16 @@
     <input type="text" name="imgSrc">
     <input type="submit">
 </form>
-<!-- stretch - turn into component... -->
+<h1>search</h1>
+<form ng-submit="searchPlanes()">
+    <input type="text" ng-model="searchForPlane">
+    <input type="submit" value="Search" class="btn btn-primary">
+</form>
+<button type="button" class="btn btn-primary" ng-click='listAll()'>list all</button>
 <div ng-repeat="airplane in airplanes">
     <p>
         <a href="/airplanes/{{airplane._id}}">
-            <!-- need to define route in angular and html page for show -->
+
             {{airplane.model}}</a>
     </p>
 </div>
