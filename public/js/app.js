@@ -19,6 +19,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 templateUrl: 'app/airplaneShow.html',
                 controller: 'AirplaneShowCtrl'
             })
+            .state('airplaneEdit', {
+                url: '/airplanes/:id/edit',
+                templateUrl: 'app/airplaneEdit.html',
+                controller: 'AirplaneEditCtrl'
+            })
             .state('404', {
                 url: '/404',
                 templateUrl: 'app/404.html'

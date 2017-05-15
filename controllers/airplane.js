@@ -18,15 +18,16 @@ router.route('/')
 
 router.route('/:id')
     .get(function(req, res) {
-
         Airplane.findById(req.params.id, function(err, airplane) {
             if (err) return res.status(500).send(err);
+            console.log('airplane get');
             return res.send(airplane);
         });
     })
     .put(function(req, res) {
         Airplane.findByIdAndUpdate(req.params.id, req.body, function(err) {
             if (err) return res.status(500).send(err);
+            console.log('airplane put');
             return res.send({ message: 'success' });
         });
     })
