@@ -29,11 +29,11 @@ controllers.controller('AirplaneShowCtrl', ['$scope', '$stateParams', 'Airplane'
 
 controllers.controller('AirplaneEditCtrl', ['$scope', '$stateParams', 'Airplane', '$state',
     function($scope, $stateParams, Airplane, $state) {
-        $scope.airplane = {};
+        // $scope.airplane = {};
 
         Airplane.showPlane($stateParams.id).then(function(res) {
             $scope.airplane = res.data;
-            console.log($scope.airplane);
+
         }).catch(function(err) {
             console.log(err);
         });
@@ -41,8 +41,8 @@ controllers.controller('AirplaneEditCtrl', ['$scope', '$stateParams', 'Airplane'
         $scope.updatePlane = function() {
             // not updating data
             console.log($scope.airplane);
-            Airplane.editPlane($scope.airplane).then(function(res) {
-                console.log(res);
+            Airplane.editPlane($stateParams.id, $scope.airplane).then(function(res) {
+                console.log($scope.airplane._id);
                 $state.go('airplaneShow', { id: $stateParams.id });
             }).catch(function(err) {
                 console.log(err);

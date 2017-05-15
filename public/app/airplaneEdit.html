@@ -1,12 +1,12 @@
 <h1>Update a Plane</h1>
 <form ng-submit="updatePlane()">
     <label for="manufacturer">Manufacturer</label>
-    <input type="text" name="manufacturer" value="{{airplane.manufacturer}}">
+    <input type="text" name="manufacturer" ng-model="airplane.manufacturer">
     <label for="model">Model</label>
-    <input type="text" name="model" value="{{airplane.model}}">
+    <input type="text" name="model" ng-model="airplane.model">
     <label for="engines">Engines</label>
-    <input type="number" name="engines" value="{{airplane.engines}}">
+    <input type="number" name="engines" ng-model="airplane.engines">
     <label for="imgSrc">Image URL</label>
-    <input type="text" name="imgSrc" value="{{airplane.imgSrc}}">
+    <input type="text" name="imgSrc" ng-model="airplane.imgSrc">
     <input type="submit">
 </form>

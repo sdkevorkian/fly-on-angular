@@ -13,10 +13,10 @@ services.factory('Airplane', ['$http', function($http) {
             };
             return $http(req);
         },
-        editPlane: function(airplane) {
+        editPlane: function(id, airplane) {
             // plane is undefined
-
-            return $http.put('/api/airplanes/' + airplane._id, airplane);
+            console.log('this is my' + airplane);
+            return $http.put('/api/airplanes/' + id, airplane);
         }
 
     };
